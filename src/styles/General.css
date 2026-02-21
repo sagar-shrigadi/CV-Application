@@ -1,0 +1,40 @@
+.general-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid red;
+  padding: 2rem;
+  gap: 1rem;
+  min-width: 500px;
+}
+
+.general-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+  min-width: 500px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+label {
+  font-size: 1.15rem;
+  font-weight: 500;
+
+  span {
+    margin-left: 0.5rem;
+  }
+}
+
+input {
+  min-width: 100%;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.5rem;
+}
