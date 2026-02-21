@@ -1,4 +1,5 @@
-.general-info {
+.general-info,
+.education-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +10,8 @@
   min-width: 500px;
 }
 
-.general-form {
+.general-form,
+.education-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,4 +39,39 @@ input {
   border: 2px solid transparent;
   border-radius: 12px;
   padding: 0.5rem;
+}
+
+.date-container,
+.btnContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* border: 1px solid red; */
+}
+
+.date-container {
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  .startDate,
+  .endDate {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+.btnContainer {
+  margin-bottom: 2rem;
+  .btnFormControl {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.addEducation {
+  align-self: center;
 }
