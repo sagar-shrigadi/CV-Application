@@ -1,15 +1,17 @@
 import General from "./General.jsx";
 import Education from "./Education.jsx";
+import Experience from "./Experience.jsx";
 
 function Wrapper({ children }) {
-  return <section>{children}</section>;
+  return <article>{children}</article>;
 }
 
 export default function UserInput() {
   return (
-    <div className="form-container">
+    <section className="forms-container">
       <Wrapper>{<General></General>}</Wrapper>
       <Wrapper>{<Education></Education>}</Wrapper>
-    </div>
+      <Wrapper>{<Experience></Experience>}</Wrapper>
+    </section>
   );
 }

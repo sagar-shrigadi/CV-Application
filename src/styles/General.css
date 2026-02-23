@@ -1,5 +1,6 @@
 .general-info,
-.education-info {
+.education-info,
+.experience-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +12,8 @@
 }
 
 .general-form,
-.education-form {
+.education-form,
+.experience-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,6 +74,7 @@ input {
   }
 }
 
-.addEducation {
+.addEducation,
+.addExperience {
   align-self: center;
 }
