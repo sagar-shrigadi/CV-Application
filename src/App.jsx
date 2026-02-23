@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import UserInput from "./components/UserInput.jsx";
+import Resume from "./components/resume.jsx";
 
 export default function App() {
   const [userInfo, setUserInfo] = useState({
@@ -33,6 +34,9 @@ export default function App() {
           userPhone={updateUserPhone}
           userAddress={updateUserAddress}
         ></UserInput>
+      </section>
+      <section className="resume-container">
+        <Resume user={userInfo}></Resume>
       </section>
     </>
   );

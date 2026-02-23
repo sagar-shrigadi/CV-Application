@@ -1,0 +1,29 @@
+.header {
+  border: 1px solid lawngreen;
+  min-width: 780px;
+  padding-block: 2rem;
+}
+h1 {
+  margin-bottom: 2.5rem;
+}
+.userContact-info {
+  display: flex;
+  /* border: 1px solid yellowgreen; */
+  justify-content: space-evenly;
+}
+.email,
+.phone,
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  gap: 1rem;
+  font-weight: 500;
+  /* border: 1px solid red; */
+}
+
+.svg {
+  fill: aliceblue;
+}
