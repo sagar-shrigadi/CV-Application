@@ -6,12 +6,28 @@ function Wrapper({ children }) {
   return <article>{children}</article>;
 }
 
-export default function UserInput() {
+export default function UserInput({
+  user,
+  userName,
+  userEmail,
+  userPhone,
+  userAddress,
+}) {
   return (
-    <section className="forms-container">
-      <Wrapper>{<General></General>}</Wrapper>
+    <>
+      <Wrapper>
+        {
+          <General
+            user={user}
+            updateName={userName}
+            updateEmail={userEmail}
+            updatePhone={userPhone}
+            updateAddress={userAddress}
+          ></General>
+        }
+      </Wrapper>
       <Wrapper>{<Education></Education>}</Wrapper>
       <Wrapper>{<Experience></Experience>}</Wrapper>
-    </section>
+    </>
   );
 }
