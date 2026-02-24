@@ -15,6 +15,7 @@ export default function App() {
     Degree: "",
     StartDate: "",
     EndDate: "",
+    Location: "",
   });
 
   function updateUserName(e) {
@@ -42,6 +43,9 @@ export default function App() {
   function updateEndDate(e) {
     setEducationInfo({ ...educationInfo, EndDate: "" });
   }
+  function updateSchoolLocation(e) {
+    setEducationInfo({ ...setEducationInfo, Location: e.target.value });
+  }
 
   return (
     <>
@@ -57,6 +61,7 @@ export default function App() {
           degree={updateDegree}
           schoolStartdate={updateStartDate}
           schoolEnddate={updateEndDate}
+          schoolLocation={updateSchoolLocation}
         ></UserInput>
       </section>
       <section className="resume-container">

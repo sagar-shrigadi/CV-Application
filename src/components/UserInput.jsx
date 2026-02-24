@@ -17,6 +17,7 @@ export default function UserInput({
   degree,
   schoolStartdate,
   schoolEnddate,
+  schoolLocation,
 }) {
   return (
     <>
@@ -39,6 +40,7 @@ export default function UserInput({
             updateDegree={degree}
             updateSchoolStartDate={schoolStartdate}
             updateSchoolEndDate={schoolEnddate}
+            updateSchoolLocation={schoolLocation}
           ></Education>
         }
       </Wrapper>

@@ -6,6 +6,7 @@ function Input({
   updateDegree,
   updateStartDate,
   updateEndDate,
+  updateLocation,
 }) {
   return (
     <form className="education-form">
@@ -51,6 +52,17 @@ function Input({
           />
         </div>
       </div>
+
+      <label htmlFor="location">Location</label>
+      <input
+        type="text"
+        name="location"
+        id="location"
+        placeholder="Enter Location of School / University"
+        value={edu.Location}
+        onChange={updateLocation}
+      />
+
       <div className="btnContainer">
         <button type="button">Delete</button>
         <div className="btnFormControl">
@@ -67,6 +79,7 @@ export default function Education({
   updateDegree,
   updateSchoolStartDate,
   updateSchoolEndDate,
+  updateSchoolLocation,
 }) {
   const [showInput, setShowInput] = useState(false);
   function btnClick() {
@@ -82,6 +95,7 @@ export default function Education({
           updateDegree={updateDegree}
           updateStartDate={updateSchoolStartDate}
           updateEndDate={updateSchoolEndDate}
+          updateLocation={updateSchoolLocation}
         ></Input>
       )}
       <button type="button" className="addEducation" onClick={btnClick}>
