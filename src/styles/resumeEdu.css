@@ -1,0 +1,31 @@
+.education-container {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
+  gap: 1rem;
+  border: 1px solid greenyellow;
+
+  h2 {
+    align-self: flex-start;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+  }
+
+  .education {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid wheat;
+
+    .uni-details {
+      display: flex;
+      justify-content: space-between;
+      padding-inline: 1rem;
+    }
+    .degree-details {
+      display: flex;
+      justify-content: space-between;
+      padding-inline: 1rem;
+    }
+  }
+}
