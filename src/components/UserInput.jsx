@@ -14,10 +14,10 @@ export default function UserInput({
   userAddress,
   education,
   schoolName,
+  schoolLocation,
   degree,
   schoolStartdate,
   schoolEnddate,
-  schoolLocation,
 }) {
   return (
     <>
@@ -37,10 +37,10 @@ export default function UserInput({
           <Education
             education={education}
             updateSchool={schoolName}
+            updateSchoolLocation={schoolLocation}
             updateDegree={degree}
             updateSchoolStartDate={schoolStartdate}
             updateSchoolEndDate={schoolEnddate}
-            updateSchoolLocation={schoolLocation}
           ></Education>
         }
       </Wrapper>
