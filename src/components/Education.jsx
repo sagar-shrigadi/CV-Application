@@ -1,6 +1,12 @@
 import { useState } from "react";
 
-function Input() {
+function Input({
+  edu,
+  updateSchool,
+  updateDegree,
+  updateStartDate,
+  updateEndDate,
+}) {
   return (
     <form className="education-form">
       <label htmlFor="school">School Name</label>
@@ -9,6 +15,8 @@ function Input() {
         name="school"
         id="school"
         placeholder="Enter School / University"
+        value={edu.SchoolName}
+        onChange={updateSchool}
       />
 
       <label htmlFor="degree">Degree</label>
@@ -17,16 +25,30 @@ function Input() {
         name="degree"
         id="degree"
         placeholder="Enter Degree / Field Of Study"
+        value={edu.Degree}
+        onChange={updateDegree}
       />
 
       <div className="date-container">
         <div className="startDate">
           <label htmlFor="startDate">Start Date</label>
-          <input type="date" name="startDate" id="startDate" />
+          <input
+            type="date"
+            name="startDate"
+            id="startDate"
+            value={edu.StartDate}
+            onChange={updateStartDate}
+          />
         </div>
         <div className="endDate">
           <label htmlFor="endDate">End Date</label>
-          <input type="date" name="endDate" id="endDate" />
+          <input
+            type="date"
+            name="endDate"
+            id="endDate"
+            value={edu.EndDate}
+            onChange={updateEndDate}
+          />
         </div>
       </div>
       <div className="btnContainer">
@@ -39,7 +61,13 @@ function Input() {
     </form>
   );
 }
-export default function Education() {
+export default function Education({
+  education,
+  updateSchool,
+  updateDegree,
+  updateSchoolStartDate,
+  updateSchoolEndDate,
+}) {
   const [showInput, setShowInput] = useState(false);
   function btnClick() {
     setShowInput(true);
@@ -47,7 +75,15 @@ export default function Education() {
   return (
     <div className="education-info">
       <h2>Education</h2>
-      {showInput && <Input></Input>}
+      {showInput && (
+        <Input
+          edu={education}
+          updateSchool={updateSchool}
+          updateDegree={updateDegree}
+          updateStartDate={updateSchoolStartDate}
+          updateEndDate={updateSchoolEndDate}
+        ></Input>
+      )}
       <button type="button" className="addEducation" onClick={btnClick}>
         + Education
       </button>

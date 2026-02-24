@@ -10,6 +10,12 @@ export default function App() {
     Phone: "",
     Address: "",
   });
+  const [educationInfo, setEducationInfo] = useState({
+    SchoolName: "",
+    Degree: "",
+    StartDate: "",
+    EndDate: "",
+  });
 
   function updateUserName(e) {
     setUserInfo({ ...userInfo, Name: e.target.value });
@@ -24,6 +30,19 @@ export default function App() {
     setUserInfo({ ...userInfo, Address: e.target.value });
   }
 
+  function updateSchoolName(e) {
+    setEducationInfo({ ...educationInfo, SchoolName: e.target.value });
+  }
+  function updateDegree(e) {
+    setEducationInfo({ ...educationInfo, Degree: e.target.value });
+  }
+  function updateStartDate(e) {
+    setEducationInfo({ ...educationInfo, StartDate: "" });
+  }
+  function updateEndDate(e) {
+    setEducationInfo({ ...educationInfo, EndDate: "" });
+  }
+
   return (
     <>
       <section className="forms-container">
@@ -33,6 +52,11 @@ export default function App() {
           userEmail={updateUserEmail}
           userPhone={updateUserPhone}
           userAddress={updateUserAddress}
+          education={educationInfo}
+          schoolName={updateSchoolName}
+          degree={updateDegree}
+          schoolStartdate={updateStartDate}
+          schoolEnddate={updateEndDate}
         ></UserInput>
       </section>
       <section className="resume-container">

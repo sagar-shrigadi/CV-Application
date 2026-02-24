@@ -12,6 +12,11 @@ export default function UserInput({
   userEmail,
   userPhone,
   userAddress,
+  education,
+  schoolName,
+  degree,
+  schoolStartdate,
+  schoolEnddate,
 }) {
   return (
     <>
@@ -26,7 +31,17 @@ export default function UserInput({
           ></General>
         }
       </Wrapper>
-      <Wrapper>{<Education></Education>}</Wrapper>
+      <Wrapper>
+        {
+          <Education
+            education={education}
+            updateSchool={schoolName}
+            updateDegree={degree}
+            updateSchoolStartDate={schoolStartdate}
+            updateSchoolEndDate={schoolEnddate}
+          ></Education>
+        }
+      </Wrapper>
       <Wrapper>{<Experience></Experience>}</Wrapper>
     </>
   );
