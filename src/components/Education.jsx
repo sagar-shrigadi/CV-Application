@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ListItem from "./ListItem";
 
 function Input({
   edu,
@@ -8,11 +9,7 @@ function Input({
   setEducationList,
   closeForm,
 }) {
-  function saveEducation(e) {
-    e.preventDefault();
-
-    setEducationList([...educationList, edu]);
-
+  function resetForm() {
     setEducation({
       id: crypto.randomUUID(),
       SchoolName: "",
@@ -23,6 +20,34 @@ function Input({
     });
 
     closeForm();
+  }
+  function saveEducation(e) {
+    e.preventDefault();
+
+    // Check if the school we are saving is already in our list
+    const ifExisting = educationList.some((school) => school.id === edu.id);
+
+    if (ifExisting) {
+      setEducationList(
+        educationList.map((school) => (school.id === edu.id ? edu : school)),
+      );
+    } else {
+      setEducationList([...educationList, edu]);
+    }
+
+    resetForm();
+  }
+
+  function cancelForm() {
+    resetForm();
+  }
+
+  function deleteEducation(e) {
+    e.preventDefault();
+
+    setEducationList(educationList.filter((school) => school.id !== edu.id));
+
+    resetForm();
   }
   return (
     <form className="education-form">
@@ -80,9 +105,13 @@ function Input({
       </div>
 
       <div className="btnContainer">
-        <button type="button">Delete</button>
+        <button type="button" onClick={deleteEducation}>
+          Delete
+        </button>
         <div className="btnFormControl">
-          <button type="button">Cancel</button>
+          <button type="button" onClick={cancelForm}>
+            Cancel
+          </button>
           <button type="submit" onClick={saveEducation}>
             Save
           </button>
@@ -100,14 +129,36 @@ export default function Education({
 }) {
   const [showInput, setShowInput] = useState(false);
   function openForm() {
+    setEducation({
+      id: crypto.randomUUID(),
+      SchoolName: "",
+      Location: "",
+      Degree: "",
+      StartDate: "",
+      EndDate: "",
+    });
     setShowInput(true);
   }
   function closeForm() {
     setShowInput(false);
   }
+  function editSchool(id) {
+    const schoolToEdit = educationList.find((school) => school.id === id);
+
+    setEducation(schoolToEdit);
+
+    setShowInput(true);
+  }
   return (
     <div className="education-info">
       <h2>Education</h2>
+      <ul className="list">
+        {educationList.map((school) => (
+          <ListItem key={school.id} handleChange={() => editSchool(school.id)}>
+            {school.SchoolName}
+          </ListItem>
+        ))}
+      </ul>
       {showInput && (
         <Input
           edu={education}

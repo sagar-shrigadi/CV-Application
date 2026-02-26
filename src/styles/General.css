@@ -78,3 +78,27 @@ input {
 .addExperience {
   align-self: center;
 }
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0;
+
+  .list-item {
+    width: 100%;
+    text-align: start;
+    font-size: 1.25rem;
+    font-weight: bold;
+    list-style-type: none;
+    background-color: rgb(57, 56, 56);
+    border: none;
+    border-radius: 0.5rem;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    cursor: pointer;
+  }
+}
