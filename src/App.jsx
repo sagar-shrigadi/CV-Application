@@ -20,33 +20,16 @@ export default function App() {
   });
   const [educationList, setEducationList] = useState([]);
 
-  function updateUserName(e) {
-    setUserInfo({ ...userInfo, Name: e.target.value });
-  }
-  function updateUserEmail(e) {
-    setUserInfo({ ...userInfo, Email: e.target.value });
-  }
-  function updateUserPhone(e) {
-    setUserInfo({ ...userInfo, Phone: e.target.value });
-  }
-  function updateUserAddress(e) {
-    setUserInfo({ ...userInfo, Address: e.target.value });
+  function updateUser(e) {
+    const { name, value } = e.target;
+
+    setUserInfo({ ...userInfo, [name]: value });
   }
 
-  function updateSchoolName(e) {
-    setEducationInfo({ ...educationInfo, SchoolName: e.target.value });
-  }
-  function updateSchoolLocation(e) {
-    setEducationInfo({ ...educationInfo, Location: e.target.value });
-  }
-  function updateDegree(e) {
-    setEducationInfo({ ...educationInfo, Degree: e.target.value });
-  }
-  function updateStartDate(e) {
-    setEducationInfo({ ...educationInfo, StartDate: e.target.value });
-  }
-  function updateEndDate(e) {
-    setEducationInfo({ ...educationInfo, EndDate: e.target.value });
+  function updateEducation(e) {
+    const { name, value } = e.target;
+
+    setEducationInfo({ ...educationInfo, [name]: value });
   }
 
   return (
@@ -54,17 +37,10 @@ export default function App() {
       <section className="forms-container">
         <UserInput
           user={userInfo}
-          userName={updateUserName}
-          userEmail={updateUserEmail}
-          userPhone={updateUserPhone}
-          userAddress={updateUserAddress}
+          updateUser={updateUser}
           education={educationInfo}
           setEducation={setEducationInfo}
-          schoolName={updateSchoolName}
-          schoolLocation={updateSchoolLocation}
-          degree={updateDegree}
-          schoolStartdate={updateStartDate}
-          schoolEnddate={updateEndDate}
+          updateSchool={updateEducation}
           educationList={educationList}
           setEducationList={setEducationList}
         ></UserInput>

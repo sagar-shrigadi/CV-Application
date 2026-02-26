@@ -1,6 +1,6 @@
 import "../styles/General.css";
 
-function Input({ user, updateName, updateEmail, updatePhone, updateAddress }) {
+function Input({ user, handleChange }) {
   return (
     <form className="general-form">
       <label htmlFor="fullname">
@@ -9,11 +9,11 @@ function Input({ user, updateName, updateEmail, updatePhone, updateAddress }) {
       </label>
       <input
         type="text"
-        name="fullname"
+        name="Name"
         id="fullname"
         placeholder="John Doe"
         value={user.Name}
-        onChange={updateName}
+        onChange={handleChange}
         required
       />
 
@@ -23,53 +23,41 @@ function Input({ user, updateName, updateEmail, updatePhone, updateAddress }) {
       </label>
       <input
         type="email"
-        name="email"
+        name="Email"
         id="email"
         placeholder="johndoe@example.com"
         value={user.Email}
-        onChange={updateEmail}
+        onChange={handleChange}
         required
       />
 
       <label htmlFor="phone">Phone Number</label>
       <input
         type="tel"
-        name="phone"
+        name="Phone"
         id="phone"
         placeholder="000-000-0000"
         value={user.Phone}
-        onChange={updatePhone}
+        onChange={handleChange}
       />
 
       <label htmlFor="address">Address</label>
       <input
         type="text"
-        name="address"
+        name="Address"
         id="address"
         placeholder="City, Country"
         value={user.Address}
-        onChange={updateAddress}
+        onChange={handleChange}
       />
     </form>
   );
 }
-export default function General({
-  user,
-  updateName,
-  updateEmail,
-  updatePhone,
-  updateAddress,
-}) {
+export default function General({ user, handleChange }) {
   return (
     <div className="general-info">
       <h2>Personal Details</h2>
-      <Input
-        user={user}
-        updateName={updateName}
-        updateEmail={updateEmail}
-        updatePhone={updatePhone}
-        updateAddress={updateAddress}
-      ></Input>
+      <Input user={user} handleChange={handleChange}></Input>
     </div>
   );
 }

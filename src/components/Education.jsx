@@ -3,11 +3,7 @@ import { useState } from "react";
 function Input({
   edu,
   setEducation,
-  updateSchool,
-  updateLocation,
-  updateDegree,
-  updateStartDate,
-  updateEndDate,
+  handleChange,
   educationList,
   setEducationList,
   closeForm,
@@ -33,31 +29,31 @@ function Input({
       <label htmlFor="school">School Name</label>
       <input
         type="text"
-        name="school"
+        name="SchoolName"
         id="school"
         placeholder="Enter School / University"
         value={edu.SchoolName}
-        onChange={updateSchool}
+        onChange={handleChange}
       />
 
       <label htmlFor="location">Location</label>
       <input
         type="text"
-        name="location"
+        name="Location"
         id="location"
         placeholder="Enter School / University Location"
         value={edu.Location}
-        onChange={updateLocation}
+        onChange={handleChange}
       />
 
       <label htmlFor="degree">Degree</label>
       <input
         type="text"
-        name="degree"
+        name="Degree"
         id="degree"
         placeholder="Enter Degree / Field Of Study"
         value={edu.Degree}
-        onChange={updateDegree}
+        onChange={handleChange}
       />
 
       <div className="date-container">
@@ -65,20 +61,20 @@ function Input({
           <label htmlFor="startDate">Start Date</label>
           <input
             type="date"
-            name="startDate"
+            name="StartDate"
             id="startDate"
             value={edu.StartDate}
-            onChange={updateStartDate}
+            onChange={handleChange}
           />
         </div>
         <div className="endDate">
           <label htmlFor="endDate">End Date</label>
           <input
             type="date"
-            name="endDate"
+            name="EndDate"
             id="endDate"
             value={edu.EndDate}
-            onChange={updateEndDate}
+            onChange={handleChange}
           />
         </div>
       </div>
@@ -98,11 +94,7 @@ function Input({
 export default function Education({
   education,
   setEducation,
-  updateSchool,
-  updateSchoolLocation,
-  updateDegree,
-  updateSchoolStartDate,
-  updateSchoolEndDate,
+  handleChange,
   educationList,
   setEducationList,
 }) {
@@ -120,11 +112,7 @@ export default function Education({
         <Input
           edu={education}
           setEducation={setEducation}
-          updateSchool={updateSchool}
-          updateLocation={updateSchoolLocation}
-          updateDegree={updateDegree}
-          updateStartDate={updateSchoolStartDate}
-          updateEndDate={updateSchoolEndDate}
+          handleChange={handleChange}
           educationList={educationList}
           setEducationList={setEducationList}
           closeForm={closeForm}

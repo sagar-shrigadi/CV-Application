@@ -8,43 +8,24 @@ function Wrapper({ children }) {
 
 export default function UserInput({
   user,
-  userName,
-  userEmail,
-  userPhone,
-  userAddress,
+  updateUser,
   education,
   setEducation,
-  schoolName,
-  schoolLocation,
-  degree,
-  schoolStartdate,
-  schoolEnddate,
+  updateSchool,
   educationList,
   setEducationList,
 }) {
   return (
     <>
       <Wrapper>
-        {
-          <General
-            user={user}
-            updateName={userName}
-            updateEmail={userEmail}
-            updatePhone={userPhone}
-            updateAddress={userAddress}
-          ></General>
-        }
+        {<General user={user} handleChange={updateUser}></General>}
       </Wrapper>
       <Wrapper>
         {
           <Education
             education={education}
             setEducation={setEducation}
-            updateSchool={schoolName}
-            updateSchoolLocation={schoolLocation}
-            updateDegree={degree}
-            updateSchoolStartDate={schoolStartdate}
-            updateSchoolEndDate={schoolEnddate}
+            handleChange={updateSchool}
             educationList={educationList}
             setEducationList={setEducationList}
           ></Education>
