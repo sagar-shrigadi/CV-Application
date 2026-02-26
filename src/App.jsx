@@ -11,12 +11,14 @@ export default function App() {
     Address: "",
   });
   const [educationInfo, setEducationInfo] = useState({
+    id: crypto.randomUUID(),
     SchoolName: "",
     Location: "",
     Degree: "",
     StartDate: "",
     EndDate: "",
   });
+  const [educationList, setEducationList] = useState([]);
 
   function updateUserName(e) {
     setUserInfo({ ...userInfo, Name: e.target.value });
@@ -57,15 +59,22 @@ export default function App() {
           userPhone={updateUserPhone}
           userAddress={updateUserAddress}
           education={educationInfo}
+          setEducation={setEducationInfo}
           schoolName={updateSchoolName}
           schoolLocation={updateSchoolLocation}
           degree={updateDegree}
           schoolStartdate={updateStartDate}
           schoolEnddate={updateEndDate}
+          educationList={educationList}
+          setEducationList={setEducationList}
         ></UserInput>
       </section>
       <section className="resume-container">
-        <Resume user={userInfo} education={educationInfo}></Resume>
+        <Resume
+          user={userInfo}
+          education={educationInfo}
+          eduList={educationList}
+        ></Resume>
       </section>
     </>
   );

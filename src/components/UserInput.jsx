@@ -13,11 +13,14 @@ export default function UserInput({
   userPhone,
   userAddress,
   education,
+  setEducation,
   schoolName,
   schoolLocation,
   degree,
   schoolStartdate,
   schoolEnddate,
+  educationList,
+  setEducationList,
 }) {
   return (
     <>
@@ -36,11 +39,14 @@ export default function UserInput({
         {
           <Education
             education={education}
+            setEducation={setEducation}
             updateSchool={schoolName}
             updateSchoolLocation={schoolLocation}
             updateDegree={degree}
             updateSchoolStartDate={schoolStartdate}
             updateSchoolEndDate={schoolEnddate}
+            educationList={educationList}
+            setEducationList={setEducationList}
           ></Education>
         }
       </Wrapper>

@@ -2,12 +2,32 @@ import { useState } from "react";
 
 function Input({
   edu,
+  setEducation,
   updateSchool,
   updateLocation,
   updateDegree,
   updateStartDate,
   updateEndDate,
+  educationList,
+  setEducationList,
+  closeForm,
 }) {
+  function saveEducation(e) {
+    e.preventDefault();
+
+    setEducationList([...educationList, edu]);
+
+    setEducation({
+      id: crypto.randomUUID(),
+      SchoolName: "",
+      Location: "",
+      Degree: "",
+      StartDate: "",
+      EndDate: "",
+    });
+
+    closeForm();
+  }
   return (
     <form className="education-form">
       <label htmlFor="school">School Name</label>
@@ -67,7 +87,9 @@ function Input({
         <button type="button">Delete</button>
         <div className="btnFormControl">
           <button type="button">Cancel</button>
-          <button type="submit">Save</button>
+          <button type="submit" onClick={saveEducation}>
+            Save
+          </button>
         </div>
       </div>
     </form>
@@ -75,15 +97,21 @@ function Input({
 }
 export default function Education({
   education,
+  setEducation,
   updateSchool,
   updateSchoolLocation,
   updateDegree,
   updateSchoolStartDate,
   updateSchoolEndDate,
+  educationList,
+  setEducationList,
 }) {
   const [showInput, setShowInput] = useState(false);
-  function btnClick() {
+  function openForm() {
     setShowInput(true);
+  }
+  function closeForm() {
+    setShowInput(false);
   }
   return (
     <div className="education-info">
@@ -91,14 +119,18 @@ export default function Education({
       {showInput && (
         <Input
           edu={education}
+          setEducation={setEducation}
           updateSchool={updateSchool}
           updateLocation={updateSchoolLocation}
           updateDegree={updateDegree}
           updateStartDate={updateSchoolStartDate}
           updateEndDate={updateSchoolEndDate}
+          educationList={educationList}
+          setEducationList={setEducationList}
+          closeForm={closeForm}
         ></Input>
       )}
-      <button type="button" className="addEducation" onClick={btnClick}>
+      <button type="button" className="addEducation" onClick={openForm}>
         + Education
       </button>
     </div>
