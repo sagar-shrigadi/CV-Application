@@ -29,6 +29,8 @@ export default function App() {
     jobDescription: "",
   });
 
+  const [experienceList, setExperienceList] = useState([]);
+
   function updateUser(e) {
     const { name, value } = e.target;
 
@@ -61,6 +63,8 @@ export default function App() {
           experience={experienceInfo}
           setExperience={setExperienceInfo}
           updateExperience={updateExperience}
+          experienceList={experienceList}
+          setExperienceList={setExperienceList}
         ></UserInput>
       </section>
       <section className="resume-container">
@@ -69,6 +73,7 @@ export default function App() {
           education={educationInfo}
           eduList={educationList}
           experience={experienceInfo}
+          expList={experienceList}
         ></Resume>
       </section>
     </>

@@ -1,6 +1,35 @@
 import { useState } from "react";
 
-function Input({ exp, setExperience, handleChange }) {
+function Input({
+  exp,
+  setExperience,
+  handleChange,
+  experienceList,
+  setExperienceList,
+  closeForm,
+}) {
+  function resetForm() {
+    setExperience({
+      id: crypto.randomUUID(),
+      CompanyName: "",
+      Location: "",
+      positionTitle: "",
+      StartDate: "",
+      EndDate: "",
+      jobDescription: "",
+    });
+
+    closeForm();
+  }
+  function saveExperience(e) {
+    e.preventDefault();
+
+    setExperienceList([...experienceList, exp]);
+    resetForm();
+  }
+  function cancelForm() {
+    resetForm();
+  }
   return (
     <form className="experience-form">
       <label htmlFor="companyName">Company Name</label>
@@ -68,8 +97,12 @@ function Input({ exp, setExperience, handleChange }) {
       <div className="btnContainer">
         <button type="button">Delete</button>
         <div className="btnFormControl">
-          <button type="button">Cancel</button>
-          <button type="submit">Save</button>
+          <button type="button" onClick={cancelForm}>
+            Cancel
+          </button>
+          <button type="submit" onClick={saveExperience}>
+            Save
+          </button>
         </div>
       </div>
     </form>
@@ -79,11 +112,25 @@ export default function Experience({
   experience,
   setExperience,
   handleChange,
+  experienceList,
+  setExperienceList,
 }) {
   const [showInput, setShowInput] = useState(false);
 
-  function btnClick() {
+  function openForm() {
+    setExperience({
+      id: crypto.randomUUID(),
+      CompanyName: "",
+      Location: "",
+      positionTitle: "",
+      StartDate: "",
+      EndDate: "",
+      jobDescription: "",
+    });
     setShowInput(true);
+  }
+  function closeForm() {
+    setShowInput(false);
   }
   return (
     <div className="experience-info">
@@ -93,9 +140,12 @@ export default function Experience({
           exp={experience}
           setExperience={setExperience}
           handleChange={handleChange}
+          experienceList={experienceList}
+          setExperienceList={setExperienceList}
+          closeForm={closeForm}
         ></Input>
       )}
-      <button type="button" className="addExperience" onClick={btnClick}>
+      <button type="button" className="addExperience" onClick={openForm}>
         + Experience
       </button>
     </div>

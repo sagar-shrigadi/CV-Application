@@ -17,6 +17,8 @@ export default function UserInput({
   experience,
   setExperience,
   updateExperience,
+  experienceList,
+  setExperienceList,
 }) {
   return (
     <>
@@ -40,6 +42,8 @@ export default function UserInput({
             experience={experience}
             setExperience={setExperience}
             handleChange={updateExperience}
+            experienceList={experienceList}
+            setExperienceList={setExperienceList}
           ></Experience>
         }
       </Wrapper>
