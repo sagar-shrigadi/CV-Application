@@ -14,6 +14,9 @@ export default function UserInput({
   updateSchool,
   educationList,
   setEducationList,
+  experience,
+  setExperience,
+  updateExperience,
 }) {
   return (
     <>
@@ -31,7 +34,15 @@ export default function UserInput({
           ></Education>
         }
       </Wrapper>
-      <Wrapper>{<Experience></Experience>}</Wrapper>
+      <Wrapper>
+        {
+          <Experience
+            experience={experience}
+            setExperience={setExperience}
+            handleChange={updateExperience}
+          ></Experience>
+        }
+      </Wrapper>
     </>
   );
 }

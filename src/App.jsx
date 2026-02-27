@@ -19,6 +19,15 @@ export default function App() {
     EndDate: "",
   });
   const [educationList, setEducationList] = useState([]);
+  const [experienceInfo, setExperienceInfo] = useState({
+    id: crypto.randomUUID(),
+    CompanyName: "",
+    Location: "",
+    positionTitle: "",
+    StartDate: "",
+    EndDate: "",
+    jobDescription: "",
+  });
 
   function updateUser(e) {
     const { name, value } = e.target;
@@ -32,6 +41,12 @@ export default function App() {
     setEducationInfo({ ...educationInfo, [name]: value });
   }
 
+  function updateExperience(e) {
+    const { name, value } = e.target;
+
+    setExperienceInfo({ ...experienceInfo, [name]: value });
+  }
+
   return (
     <>
       <section className="forms-container">
@@ -43,6 +58,9 @@ export default function App() {
           updateSchool={updateEducation}
           educationList={educationList}
           setEducationList={setEducationList}
+          experience={experienceInfo}
+          setExperience={setExperienceInfo}
+          updateExperience={updateExperience}
         ></UserInput>
       </section>
       <section className="resume-container">
