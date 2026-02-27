@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ListItem from "./ListItem";
 
 function Input({
   exp,
@@ -24,10 +25,27 @@ function Input({
   function saveExperience(e) {
     e.preventDefault();
 
-    setExperienceList([...experienceList, exp]);
+    // current experince state the user is entering is stored in exp
+    // check to see if the id of this already exists in the list
+    // if it does, its not a new work added but rather an edit
+    const ifExisting = experienceList.some((work) => work.id === exp.id);
+
+    if (ifExisting) {
+      // if true means the id already exists, this its a edit of a current work already stored in experienceList
+      setExperienceList(
+        experienceList.map((work) => (work.id === exp.id ? exp : work)),
+      );
+    } else {
+      setExperienceList([...experienceList, exp]);
+    }
     resetForm();
   }
   function cancelForm() {
+    resetForm();
+  }
+  function deleteExperience() {
+    setExperienceList(experienceList.filter((work) => work.id !== exp.id));
+
     resetForm();
   }
   return (
@@ -95,7 +113,9 @@ function Input({
         onChange={handleChange}
       />
       <div className="btnContainer">
-        <button type="button">Delete</button>
+        <button type="button" onClick={deleteExperience}>
+          Delete
+        </button>
         <div className="btnFormControl">
           <button type="button" onClick={cancelForm}>
             Cancel
@@ -132,9 +152,23 @@ export default function Experience({
   function closeForm() {
     setShowInput(false);
   }
+  function editWork(id) {
+    const workToUpdate = experienceList.find((work) => work.id === id);
+
+    setExperience(workToUpdate);
+
+    setShowInput(true);
+  }
   return (
     <div className="experience-info">
       <h2>Experience</h2>
+      <ul className="list">
+        {experienceList.map((work) => (
+          <ListItem key={work.id} handleChange={() => editWork(work.id)}>
+            {work.CompanyName}
+          </ListItem>
+        ))}
+      </ul>
       {showInput && (
         <Input
           exp={experience}
