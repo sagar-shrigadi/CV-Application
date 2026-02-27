@@ -1,0 +1,33 @@
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
+  gap: 1rem;
+  border: 1px solid greenyellow;
+
+  h2 {
+    align-self: flex-start;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+  }
+
+  .experience {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1rem;
+    gap: 1rem;
+    border: 1px solid wheat;
+
+    .name-duration,
+    .title-location {
+      display: flex;
+      justify-content: space-between;
+    }
+    .job-description {
+      align-self: flex-start;
+      text-align: start;
+    }
+  }
+}

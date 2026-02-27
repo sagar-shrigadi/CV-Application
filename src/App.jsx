@@ -68,6 +68,7 @@ export default function App() {
           user={userInfo}
           education={educationInfo}
           eduList={educationList}
+          experience={experienceInfo}
         ></Resume>
       </section>
     </>
