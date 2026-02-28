@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap");
+
+.resume-container {
+  font-family: "Cormorant Garamond", serif;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.815);
+  color: black;
+  max-width: 49.6rem;
+  min-height: 70.15rem;
+}
