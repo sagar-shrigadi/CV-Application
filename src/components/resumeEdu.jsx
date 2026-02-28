@@ -1,6 +1,6 @@
 import "../styles/resumeEdu.css";
 
-export default function ResumeEducation({ edu, list }) {
+export default function ResumeEducation({ list }) {
   return (
     <div className="education-container">
       <h2>Education</h2>
@@ -12,7 +12,9 @@ export default function ResumeEducation({ edu, list }) {
               <p>{education.SchoolName}</p>
             </strong>
 
-            <p>{education.Location}</p>
+            <strong>
+              <p>{education.Location}</p>
+            </strong>
           </div>
 
           <div className="degree-details">
@@ -20,34 +22,15 @@ export default function ResumeEducation({ edu, list }) {
               <p>{education.Degree}</p>
             </em>
             <div className="degree-period">
-              <p>
-                {education.StartDate} - {education.EndDate}
-              </p>
+              <em>
+                <p>
+                  {education.StartDate} - {education.EndDate}
+                </p>
+              </em>
             </div>
           </div>
         </div>
       ))}
-
-      <div className="education">
-        <div className="uni-details">
-          <strong>
-            <p>{edu.SchoolName}</p>
-          </strong>
-
-          <p>{edu.Location}</p>
-        </div>
-
-        <div className="degree-details">
-          <em>
-            <p>{edu.Degree}</p>
-          </em>
-          <div className="degree-period">
-            <p>
-              {edu.StartDate} - {edu.EndDate}
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

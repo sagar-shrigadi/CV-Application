@@ -70,9 +70,7 @@ export default function App() {
       <section className="resume-container">
         <Resume
           user={userInfo}
-          education={educationInfo}
           eduList={educationList}
-          experience={experienceInfo}
           expList={experienceList}
         ></Resume>
       </section>
