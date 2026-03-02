@@ -10,24 +10,7 @@ export default function App() {
     Phone: "",
     Address: "",
   });
-  const [educationInfo, setEducationInfo] = useState({
-    id: crypto.randomUUID(),
-    SchoolName: "",
-    Location: "",
-    Degree: "",
-    StartDate: "",
-    EndDate: "",
-  });
   const [educationList, setEducationList] = useState([]);
-  const [experienceInfo, setExperienceInfo] = useState({
-    id: crypto.randomUUID(),
-    CompanyName: "",
-    Location: "",
-    positionTitle: "",
-    StartDate: "",
-    EndDate: "",
-    jobDescription: "",
-  });
 
   const [experienceList, setExperienceList] = useState([]);
 
@@ -37,32 +20,14 @@ export default function App() {
     setUserInfo({ ...userInfo, [name]: value });
   }
 
-  function updateEducation(e) {
-    const { name, value } = e.target;
-
-    setEducationInfo({ ...educationInfo, [name]: value });
-  }
-
-  function updateExperience(e) {
-    const { name, value } = e.target;
-
-    setExperienceInfo({ ...experienceInfo, [name]: value });
-  }
-
   return (
     <>
       <section className="forms-container">
         <UserInput
           user={userInfo}
           updateUser={updateUser}
-          education={educationInfo}
-          setEducation={setEducationInfo}
-          updateSchool={updateEducation}
           educationList={educationList}
           setEducationList={setEducationList}
-          experience={experienceInfo}
-          setExperience={setExperienceInfo}
-          updateExperience={updateExperience}
           experienceList={experienceList}
           setExperienceList={setExperienceList}
         ></UserInput>

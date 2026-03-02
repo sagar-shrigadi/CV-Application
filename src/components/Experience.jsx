@@ -128,17 +128,26 @@ function Input({
     </form>
   );
 }
-export default function Experience({
-  experience,
-  setExperience,
-  handleChange,
-  experienceList,
-  setExperienceList,
-}) {
+export default function Experience({ experienceList, setExperienceList }) {
   const [showInput, setShowInput] = useState(false);
+  const [experienceInfo, setExperienceInfo] = useState({
+    id: crypto.randomUUID(),
+    CompanyName: "",
+    Location: "",
+    positionTitle: "",
+    StartDate: "",
+    EndDate: "",
+    jobDescription: "",
+  });
+
+  function updateExperience(e) {
+    const { name, value } = e.target;
+
+    setExperienceInfo({ ...experienceInfo, [name]: value });
+  }
 
   function openForm() {
-    setExperience({
+    setExperienceInfo({
       id: crypto.randomUUID(),
       CompanyName: "",
       Location: "",
@@ -155,7 +164,7 @@ export default function Experience({
   function editWork(id) {
     const workToUpdate = experienceList.find((work) => work.id === id);
 
-    setExperience(workToUpdate);
+    setExperienceInfo(workToUpdate);
 
     setShowInput(true);
   }
@@ -171,9 +180,9 @@ export default function Experience({
       </ul>
       {showInput && (
         <Input
-          exp={experience}
-          setExperience={setExperience}
-          handleChange={handleChange}
+          exp={experienceInfo}
+          setExperience={setExperienceInfo}
+          handleChange={updateExperience}
           experienceList={experienceList}
           setExperienceList={setExperienceList}
           closeForm={closeForm}

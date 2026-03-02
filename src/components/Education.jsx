@@ -120,16 +120,25 @@ function Input({
     </form>
   );
 }
-export default function Education({
-  education,
-  setEducation,
-  handleChange,
-  educationList,
-  setEducationList,
-}) {
+export default function Education({ educationList, setEducationList }) {
   const [showInput, setShowInput] = useState(false);
+  const [educationInfo, setEducationInfo] = useState({
+    id: crypto.randomUUID(),
+    SchoolName: "",
+    Location: "",
+    Degree: "",
+    StartDate: "",
+    EndDate: "",
+  });
+
+  function updateEducation(e) {
+    const { name, value } = e.target;
+
+    setEducationInfo({ ...educationInfo, [name]: value });
+  }
+
   function openForm() {
-    setEducation({
+    setEducationInfo({
       id: crypto.randomUUID(),
       SchoolName: "",
       Location: "",
@@ -139,13 +148,15 @@ export default function Education({
     });
     setShowInput(true);
   }
+
   function closeForm() {
     setShowInput(false);
   }
+
   function editSchool(id) {
     const schoolToEdit = educationList.find((school) => school.id === id);
 
-    setEducation(schoolToEdit);
+    setEducationInfo(schoolToEdit);
 
     setShowInput(true);
   }
@@ -161,9 +172,9 @@ export default function Education({
       </ul>
       {showInput && (
         <Input
-          edu={education}
-          setEducation={setEducation}
-          handleChange={handleChange}
+          edu={educationInfo}
+          setEducation={setEducationInfo}
+          handleChange={updateEducation}
           educationList={educationList}
           setEducationList={setEducationList}
           closeForm={closeForm}

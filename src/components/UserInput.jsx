@@ -9,14 +9,8 @@ function Wrapper({ children }) {
 export default function UserInput({
   user,
   updateUser,
-  education,
-  setEducation,
-  updateSchool,
   educationList,
   setEducationList,
-  experience,
-  setExperience,
-  updateExperience,
   experienceList,
   setExperienceList,
 }) {
@@ -28,9 +22,6 @@ export default function UserInput({
       <Wrapper>
         {
           <Education
-            education={education}
-            setEducation={setEducation}
-            handleChange={updateSchool}
             educationList={educationList}
             setEducationList={setEducationList}
           ></Education>
@@ -39,9 +30,6 @@ export default function UserInput({
       <Wrapper>
         {
           <Experience
-            experience={experience}
-            setExperience={setExperience}
-            handleChange={updateExperience}
             experienceList={experienceList}
             setExperienceList={setExperienceList}
           ></Experience>
