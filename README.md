@@ -1,16 +1,39 @@
-# React + Vite
+# 📝 CV Builder Using React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic CV application built with React that allows users to input their general information, educational background, and practical experience. This project demonstrates core React concepts like functional components, props, and state management.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[View the Live Site on Cloudflare Pages](https://cv-application-643.pages.dev/)
 
-## React Compiler
+![Preview - Light Mode](./src/assets/CV_App-Light.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![Preview - Dark Mode](./src/assets/CV_App-Dark.png)
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Modular Sections:** Dedicated components for General Info, Education, and Practical Experience.
+- **Toggle Edit/Submit:** Seamlessly switch between form-entry and preview modes using React state.
+- **Dynamic Updates:** Edited values are instantly reflected in the CV preview without page reloads.
+
+## 🛠️ Tech Stack
+
+- Semantic HTML5
+- CSS
+- React.js + Vite
+
+## What I learned
+
+- React Fundamentals
+- Creating a react app with Vite
+- Function components and Hooks
+- Controlling inputs and rendering lists in react
+- Managing state in react
+- Deploying a site with a PaaS like [Cloudflare Pages](https://pages.cloudflare.com/).
+
+## Features to Add
+
+- Allow user's to save the generated CV in a pdf format
+- Add Skills section
+- Form Validation
+- Responsiveness
